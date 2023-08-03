@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "product_1",
+      "price":1000,
+      "image":"/images/product.jpg"
+    },
+    {
+      "id": 2,
+      "title": "product_2",
+      "price":1500,
+      "image":"/images/product.jpg"
+    }
+
+  ]
+
+}
