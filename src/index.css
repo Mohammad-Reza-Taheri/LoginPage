@@ -2,3 +2,11 @@
     display: flex;
     justify-content: space-around;
 } */
+/* @font-face {
+    font-family: "Consolas";
+    src: url("https://fonts.googleapis.com/css?family=Consolas");
+  }
+  
+  .code {
+    font-family: "Consolas", monospace;
+  } */
