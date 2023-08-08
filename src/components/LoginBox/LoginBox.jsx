@@ -5,44 +5,45 @@ import {FaUser} from 'react-icons/fa'
 import {FaLock} from 'react-icons/fa'
 import {FaUserPlus} from 'react-icons/fa'
 import {FaQuestion} from 'react-icons/fa'
+import { Container } from 'react-bootstrap'
 
 const LoginBox = () => {
     return (
         
             
-            <div class="container">
-                <div class="box">
-                <div class="cover"></div>
-                <div class="cover-border"></div>
-                    <div class="shadow"></div>
-                    <div class="content">
-                        <div class="form">
-                            <h3 class="logo"><i class="fa-solid fa-key"></i><FaKey></FaKey></h3>
+            <Container >
+                <div className="box">
+                <div className="cover"></div>
+                <div className="cover-border"></div>
+                    <div className="shadow"></div>
+                    <div className="content">
+                        <div className="form">
+                            <h3 className="logo"><i><FaKey></FaKey></i></h3>
                             <h2>Sign in</h2>
-                            <div class="inputBox">
+                            <div className="inputBox">
                                 <input type="text" required />
                                 <i><FaUser></FaUser></i>
                                 
-                                <span class="myBox">Username</span>
+                                <span className="myBox">Username</span>
                             </div>
-                            <div class="inputBox">
+                            <div className="inputBox">
                                 <input type="password" required />
                                 <i ><FaLock></FaLock></i>
                                 
                                 <span>Password</span>
                             </div>
-                            <div class="links">
+                            <div className="links">
                                 <span href="#"><i><FaQuestion></FaQuestion></i>Forgot Password</span>
                                 <span href="#"><i><FaUserPlus></FaUserPlus></i>Sign up</span>
                             </div>
-                            <div class="inputBox">
+                            <div className="inputBox">
                                 <input type="submit" value="Log in" />
 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
        
     )
 }

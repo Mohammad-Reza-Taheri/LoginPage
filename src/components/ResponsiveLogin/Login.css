@@ -1,0 +1,352 @@
+/* .f-div {
+    background-color: red;
+    position: relative;
+    width: 300px;
+    height: 100px;
+   
+   
+}
+
+.f-div::before{
+    content:'';
+    background-color: aqua;
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
+    width: 90%;
+    height:90%;
+
+    
+} */
+
+/* @property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value:0deg;
+
+}
+
+@keyframes animate{
+
+    0%
+    {
+        --a:0deg;
+    }
+
+    100%
+    {
+        --a:360deg;
+    }
+}
+
+.f-div{
+    position:relative;
+    
+    padding: 15px 30px;
+    background:repeating-conic-gradient(from var(--a),var(blue) 0%,var(blue) 5%,transparent 5%,transparent 40%,var(blue) 50%);
+    
+    animation: animate 2s linear infinite;
+}
+
+.f-div::before{
+    content: 'sf';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background:repeating-conic-gradient(from var(--a),var(green) 0%,var(green) 5%,transparent 5%,transparent 40%,var(green) 50%);
+    animation: animate 2s linear infinite;
+    animation-delay:-0.5s;
+    transition: 0.5s;
+    opacity: 0;
+}
+.f-div:hover::before{
+opacity: 1;
+}
+
+.f-div::after{
+    content: 'sff';
+    position: absolute;
+    inset: 2px;
+    background: #191919;
+} */
+
+
+.a{
+    color:red;
+}
+
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    min-height: 100vh;
+    background:#191919
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value:0deg;
+
+}
+.loader1{
+    position: relative;
+    width:150px;
+    height:150px;
+    background:repeating-conic-gradient(from var(--a),yellow 0%,yellow 5%,transparent 5%,transparent 40%,yellow 100%);
+    border-radius: 50%;
+    animation: animate 2s linear infinite;
+    /* transition: 2s; */
+
+}
+@keyframes animate{
+
+    0%
+    {
+        --a:0deg;
+    }
+
+    100%
+    {
+        --a:360deg;
+    }
+}
+
+.loader1::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #191919;
+    border-radius: 50%;
+}
+
+.loader1 span{
+    position:absolute;
+    inset: 0;
+    animation:rotate 2s linear infinite;
+
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+
+.loader1 span::before{
+    content: '';
+    position: absolute;
+    left: 94px;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 5px yellow,
+    0 0 20px var(--clr),
+    0 0 40px var(--clr);
+}
+
+
+/* button */
+
+.btn{
+    position:relative;
+    /* text-decoration: none; */
+    padding: 15px 30px;
+    background:repeating-conic-gradient(from var(--a),yellow 0%,yellow 5%,transparent 5%,transparent 40%,yellow 50%);
+    /* animation ba animation bala moshtarek ast */
+    animation: animate 2s linear infinite;
+}
+
+.btn::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background:repeating-conic-gradient(from var(--a),aqua 0%,aqua 5%,transparent 5%,transparent 40%,aqua 50%);
+    animation: animate 2s linear infinite;
+    animation-delay:-0.5s;
+    transition: 0.5s;
+    opacity: 0;
+}
+.btn:hover::before{
+opacity: 1;
+}
+
+.btn::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #191919;
+}
+
+.btn span{
+    position:relative;
+    font-size: 1.5em;
+    z-index: 10;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: white;
+    transition: 0.5s;
+}
+
+.btn:hover span{
+    letter-spacing: 0.35em;
+    color:aqua
+}
+
+
+/* btn_1 */
+.btn_1{
+        position:relative;
+        border:1px solid rgb(34, 34, 34);
+        border-radius: 5px;
+        /* box-shadow:  rgba(255, 255, 255, 0.12) 0px 2px 4px 0px, rgba(255, 255, 255, 0.32) 0px 2px 16px 0px;; */
+        /* text-decoration: none; */
+        padding: 15px 30px;
+        background:repeating-conic-gradient(from var(--a),blue 0%,blue 5%,transparent 5%,transparent 40%,blue 50%);
+        /* animation ba animation bala moshtarek ast */
+        animation: animate 2s linear infinite;
+    }
+    
+    .btn_1::before{
+        content: '';
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height:100%;
+        background:repeating-conic-gradient(from var(--a),green 0%,green 5%,transparent 5%,transparent 40%,green 50%);
+        animation: animate 2s linear infinite;
+        animation-delay:-0.5s;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .btn_1:hover::before{
+    opacity: 1;
+    }
+    
+    .btn_1::after{
+        content: '';
+        position: absolute;
+        inset: 2px;
+        background: #191919;
+    }
+    .btn_1 span{
+        position:relative;
+        font-size: 1.5em;
+        z-index: 10;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: white;
+        transition: 0.5s;
+    }
+    
+    .btn_1:hover span{
+        letter-spacing: 0.35em;
+        color:green;
+    }
+
+
+
+
+
+
+    /***************************************************************************************/
+    /* my div */
+
+    .f_div{
+        position:relative;
+        /* text-decoration: none; */
+        /* padding: 15px 30px; */
+        padding:10px;
+        background:repeating-conic-gradient(from var(--a),rgb(0, 255, 55) 0%,rgb(0, 255, 55) 5%,transparent 5%,transparent 40%,rgb(0, 255, 55) 50%);
+        /* animation ba animation bala moshtarek ast */
+        animation: animate 2s linear infinite;
+    }
+    
+    .f_div::before{
+        content: '';
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height:100%;
+        background:repeating-conic-gradient(from var(--a),aqua 0%,aqua 5%,transparent 5%,transparent 40%,aqua 50%);
+        animation: animate 2s linear infinite;
+        animation-delay:-0.5s;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .f_div:hover::before{
+    opacity: 1;
+    }
+    
+    .f_div::after{
+        content: '';
+        position: absolute;
+        inset: 2px;
+        background: #191919;
+    }
+    
+    .f_div div{
+        position:relative;
+        /* font-size: 1.5em; */
+        z-index: 10;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: white;
+        transition: 0.5s;
+    }
+    
+    .f_div:hover span{
+        /* letter-spacing: 0.35em; */
+        color:aqua
+    }
+    
+    
+
+    .logo{
+        width: 70px;
+        height: 70px;
+        background: #444;
+        color: #fff;
+        font-size: 1.75em;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+    }
+
+    .input-click{
+        width:100%;
+    }
+    
+    .myLink{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .ww{
+        width: 400px;
+        background-color: red;
+    }

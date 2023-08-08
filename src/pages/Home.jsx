@@ -1,8 +1,13 @@
 import React from 'react'
+import Login from '../components/ResponsiveLogin/Login'
+
+import Login2 from '../components/ResponsiveLogin_2/Login2'
 
 const Home = () => {
   return (
-    <div>Home</div>
+   <>
+   <Login2/>
+   </>
   )
 }
 
