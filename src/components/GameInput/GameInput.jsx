@@ -29,10 +29,15 @@ const GameInput = () => {
         //loop on letter
         const name = "ali is not beautiful"
 
-        const newArray = [...write]
+        
+        if(e.key==='Backspace'){
+            console.log("pack")
+            return;
+        }
+else{
+    const newArray = [...write]
         newArray[index] = true;
         setWrite(newArray)
-
         const newValue = [...value];
         if (e.key === name.charAt(index)) {
             console.log("your right", name.charAt(index))
@@ -49,7 +54,7 @@ const GameInput = () => {
             setIndex(index + 1)
             return;
         }
-
+    }
 
 
 
