@@ -1,0 +1,58 @@
+.my_input{
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding:10px 20px;
+    border-radius: 10px;
+}
+.started{
+
+    background-color: rgb(98, 98, 98);
+}
+
+.start{
+    /* background-color: green; */
+    background-color: rgb(189, 255, 57);
+    
+}
+
+
+
+.stop{
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 15px;  
+    border-radius: 10px;
+
+}
+
+
+.text_show{
+  border:1px solid green;
+}
+
+
+.red{
+  color:red;
+  transition: 0.3s;
+
+}
+.white{
+  color:white;
+  transition: 0.3s;
+  font-size: 50px;
+}
+.gray{
+  color:gray;
+  transition: 0.3s;
+}
+
+
+
+@media screen and (max-width: 780px){
+  .stop {
+    background-color:blue;
+  }
+}
