@@ -6,5 +6,14 @@ flex-direction: column;
 background-color: aqua;
 height: 100vh;
 }
+.count_down_text{
+    color: gray;
+    text-align: center;
+}
 
-
+.count_down_time{
+    font-size: 30px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
