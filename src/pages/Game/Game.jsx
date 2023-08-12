@@ -4,7 +4,7 @@ import './Game.css'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import Countdown from '../../components/Countdown'
 import TimeCounter from '../../components/TimeCounter'
-
+import AudioPlayer from '../../components/AudioPlayer'
 // const UrgeWithPleasureComponent = () => (
 //   <CountdownCircleTimer
 //     isPlaying
@@ -21,25 +21,26 @@ import TimeCounter from '../../components/TimeCounter'
 
 
 const Game = () => {
+  //Gone Time
+  const [isSaving,setIsSaving] = useState(false)
 
-  const { time} = TimeCounter(0);
-  const[timeController,setTimeController]=useState(0)
-  const[valueSaver,setValueSaver]=useState(false)
-  const[goneTime,setGoneTime]=useState(0);
- useEffect(()=>{
-  if(valueSaver===false){
-    // setTimeController(time)
-    setGoneTime(time-timeController)
-  }else{
-    console.log('value saver is true')
-    setTimeController(time)
-    console.log("time controller is :",timeController)
-    setValueSaver(false)
-  }
- },[time,valueSaver,timeController])
+   const { goneTime } = TimeCounter(0,isSaving,setIsSaving);
+  // const [timeController, setTimeController] = useState(0)
+  // const [goneTime, setGoneTime] = useState(0);
+  // useEffect(() => {
+  //   if (valueSaver === false) {
+  //     // setTimeController(time)
+  //     setGoneTime(time - timeController)
+  //   } else {
+  //     console.log('value saver is true')
+  //     setTimeController(time)
+  //     console.log("time controller is :", timeController)
+  //     setValueSaver(false)
+  //   }
+  // }, [time, valueSaver, timeController])
 
-  console.log(time);
-console.log("time controller",timeController)
+  // console.log(time);
+  // console.log("time controller", timeController)
 
 
 
@@ -67,11 +68,11 @@ console.log("time controller",timeController)
       {count}
       <h1>Gone time is :{goneTime}</h1>
 
-<input type="button" value={"set value saver true"} onClick={()=>setValueSaver(true)}/>
+      <input type="button" value={"set value saver true"} onClick={() => setIsSaving(!isSaving)} />
 
 
 
-
+<AudioPlayer/>
 
 
 

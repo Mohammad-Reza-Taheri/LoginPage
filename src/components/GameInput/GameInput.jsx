@@ -245,14 +245,15 @@
 // export default GameInput
 
 
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import './GameInput.css'
-import { Form } from 'react-bootstrap';
 import Song from '../Song.jsx'
-import { useTimeout } from 'react-use';
 import TimeCounter from '../TimeCounter';
-
+import { song_text,char_count, times } from '../SongRules';
 const GameInput = () => {
+
+
+
     //start key
     const [start, setStart] = useState(false);
 
@@ -265,11 +266,19 @@ const GameInput = () => {
     const [spaceNeed, setSpaceNeed] = useState(false);
 
     //hide lyric
-    const [hide, setHide] = useState([false, true])
+    const [hide, setHide] = useState([])
     const [index_2, setIndex_2] = useState(0);
     const [textNumber, setTextNumber] = useState(3);
 
     //Time
+    const [isSaving, setIsSaving] = useState(false)
+    const [seconds, setSeconds] = useState(0)
+    const { goneTime } = TimeCounter(seconds, isSaving)
+
+    //reset Time
+    const handleResetTime = () => {
+        setSeconds(0)
+    }
 
 
     // Initialize the hide state with the correct length and values
@@ -277,35 +286,74 @@ const GameInput = () => {
         const newHide = Array(textNumber).fill(true);
         newHide[0] = false; // Show the first lyric
         setHide(newHide);
+
     }, [textNumber])
 
-    // Define a function to hide the current lyric and show the next one
-    const hideLyric = () => {
+    //handle play song
+    // const newHide=[...hide];
+    // const handlePlaySong=()=>{
+    //     console.log("paly song done")
+    //     if(goneTime===2){
+    //         newHide[0]=true;
+    //         newHide[1]=false;
+    //         setHide(newHide)
+    //     }
+    //     console.log("gone time is :",goneTime)
+    // }
 
-        // if (time === 2) {
-        // Copy the hide state
+
+    //text animation
+    // const {song_text,times}=SongRules;
+    // const times=[2,5]
+    console.log(times[0])
+    useEffect(() => {
         const newHide = [...hide];
-        // Hide the current lyric
-        newHide[index_2] = true;
-        // Check if there is a next lyric
-        if (index_2 + 1 < textNumber) {
-            // Show the next lyric
-            newHide[index_2 + 1] = false;
-            // Update the index
-            setIndex_2(index_2 + 1);
+        if (start === true) {
+            console.log("the song played")
+            if (goneTime === times[index_2]) {
+                newHide[index_2] = true;
+                newHide[index_2 + 1] = false;
+                setHide(newHide)
+                setIndex(char_count[index_2])
+                setIndex_2(index_2 + 1)
+            }
+        } else {
+            console.log('object')
         }
-
-        // Update the hide state
-        setHide(newHide);
+    }, [goneTime, start])
 
 
-        console.log(index_2)
-        // }
+    
 
 
 
 
-    }
+
+
+
+    // Define a function to hide the current lyric and show the next one
+    // const hideLyric = () => {
+
+    //     // if (time === 2) {
+    //     // Copy the hide state
+    //     const newHide = [...hide];
+    //     // Hide the current lyric
+    //     newHide[index_2] = true;
+    //     // Check if there is a next lyric
+    //     if (index_2 + 1 < textNumber) {
+    //         // Show the next lyric
+    //         newHide[index_2 + 1] = false;
+    //         // Update the index
+    //         setIndex_2(index_2 + 1);
+    //     }
+
+    //     // Update the hide state
+    //     setHide(newHide);
+
+
+    //     console.log(index_2)
+    //     // }
+    // }
 
 
     // Use useTimeout to call hideLyric after 3 seconds
@@ -315,9 +363,9 @@ const GameInput = () => {
         console.log("you pressed key", e.key)
 
         //loop on letter
-        const name = "ali is not beautiful"
+        // const song_text = "ali is not beautiful"
 
-
+        //for handle Backspace
         if (e.key === 'Backspace') {
             console.log("pack")
             return;
@@ -328,23 +376,23 @@ const GameInput = () => {
             setWrite(newArray)
             const newValue = [...value];
 
-            if (name.charAt(index + 1) === ' ') {
+            if (song_text.charAt(index + 1) === ' ') {
                 console.log("space")
                 setSpaceNeed(true);
                 // setIndex(index+1)
             } else {
-                setSpaceNeed(!!false)
+                setSpaceNeed(false)
             }
 
-            if (e.key === name.charAt(index)) {
-                console.log("your right", name.charAt(index))
+            if (e.key === song_text.charAt(index)) {
+                console.log("your right", song_text.charAt(index))
                 newValue[index] = true;
                 setValue(newValue)
                 setIndex(index + 1)
                 return;
             }
             else {
-                console.log("your wrong", name.charAt(index))
+                console.log("your wrong", song_text.charAt(index))
                 newValue[index] = false;
                 console.log(newValue)
                 setValue(newValue)
@@ -357,12 +405,12 @@ const GameInput = () => {
 
     return (
         <div className="App">
-            {/* <h1>{hide}</h1> */}
+
 
             <>
                 <div >
                     <h1 className='text_show'>
-                        <Song write={write} value={value} hide={hide} />
+                        <Song write={write} value={value} hide={hide}/>
                     </h1>
                     {spaceNeed && <h1 className='bg-dark text-light'>need space</h1>}
                     {/* <input type="button" onClick={()=>setHide(true)} value={'hide'}/> */}
@@ -374,17 +422,16 @@ const GameInput = () => {
                             setStart(true)
                             // handleStart()
                             // hideLyric();
+                            // handlePlaySong()
+                            setIsSaving(true)
 
                         }}
                         onKeyDown={(e) => handleKeyPress(e)}
                         value={`${start ? 'started' : 'start'}`}
                     />
 
-                    <input type="button" value={"start interval"} />
-
                     <input type='button'
                         className='stop' value={"Stop"}
-                    //  onClick={handleStop()} 
                     />
                 </div>
             </>
