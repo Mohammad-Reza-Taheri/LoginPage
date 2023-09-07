@@ -4,8 +4,8 @@ import "./LoginBox.css"
 const LoginBox = () => {
     return (
         <div>
-            this is login box
-            {/* <div class="container">
+            
+             <div class="container">
                 <div class="box">
                     <div class="cover"></div>
                     <div class="shadow"></div>
@@ -34,7 +34,7 @@ const LoginBox = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div> 
         </div>
     )
 }
